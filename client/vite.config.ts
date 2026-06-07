@@ -5,18 +5,18 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
-   preview: {
-    port: 3000,
-    host: true,
-    allowedHosts: [
-      'prodexa-ai.onrender.com', // Add your Render frontend domain
-      'localhost',
-    ],
-  },
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+    },
+  },
+  server: {
+    host: true, // or "0.0.0.0" // allow access from Docker container
+    port: 5173,
+    allowedHosts: true,
+    watch: {
+      usePolling: true, // enables hot reload inside Docker
     },
   },
 });
