@@ -6,6 +6,7 @@ import morgan from "morgan";
 import rateLimit from "express-rate-limit";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
+import csrf from "csurf";
 
 import { ConnectDB } from "./config/db.js";
 import userRoutes from "./routes/user.router.js";
