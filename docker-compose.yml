@@ -13,8 +13,7 @@ services:
     # Overrides the Dockerfile CMD to use nodemon for auto-restarts
     command: npx nodemon server.js
     environment:
-      - CLIENT_URL=http://localhost:3000
-      - FASTAPI_URL=http://fastapi:8000
+      - CLIENT_URL=http://localhost:5173
       - NODE_ENV=development
     env_file:
       - ./server/.env

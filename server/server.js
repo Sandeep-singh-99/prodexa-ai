@@ -32,25 +32,25 @@ app.use(
 );
 app.use(morgan("dev"));
 app.use(helmet());
-// app.use(
-//   csrf({
-//     cookie: {
-//       httpOnly: true,
-//       secure: true,
-//       sameSite: "None",
-//     },
-//   })
-// );
+app.use(
+  csrf({
+    cookie: {
+      httpOnly: true,
+      secure: true,
+      sameSite: "None",
+    },
+  })
+);
 
-// // Send CSRF token to frontend
-// app.get("/api/v1/csrf-token", (req, res) => {
-//   res.cookie("csrfToken", req.csrfToken(), {
-//     httpOnly: false, // must be false so frontend JS can read
-//     secure: true,
-//     sameSite: "None", // important for cross-origin (frontend ↔ backend on Render)
-//   });
-//   res.json({ csrfToken: req.csrfToken() });
-// });
+// Send CSRF token to frontend
+app.get("/api/v1/csrf-token", (req, res) => {
+  res.cookie("csrfToken", req.csrfToken(), {
+    httpOnly: false, // must be false so frontend JS can read
+    secure: true,
+    sameSite: "None", // important for cross-origin (frontend ↔ backend on Render)
+  });
+  res.json({ csrfToken: req.csrfToken() });
+});
 
 
 
