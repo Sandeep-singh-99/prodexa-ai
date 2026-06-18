@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "sonner";
 
 console.log("🚨 VITE_API_URL:", import.meta.env.VITE_API_URL);
 
@@ -39,7 +40,7 @@ axiosClient.interceptors.response.use(
       error.response?.data?.message?.includes("invalid csrf token") &&
       !originalRequest._retry
     ) {
-      toast.warn("Session expired. Retrying...");
+      toast.warning("Session expired. Retrying...");
       originalRequest._retry = true;
       try {
         const csrfToken = await fetchCsrfToken();

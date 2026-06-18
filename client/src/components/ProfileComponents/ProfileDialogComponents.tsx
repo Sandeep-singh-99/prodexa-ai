@@ -19,8 +19,8 @@ import {
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { useUpdateProfile } from "@/api/authApi";
-import { toast } from "react-toastify";
 import { AxiosError } from "axios";
+import { toast } from "sonner";
 
 interface ProfileDialogComponentsProps {
   triggerButton: ReactNode;

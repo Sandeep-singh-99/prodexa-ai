@@ -14,8 +14,8 @@ import { MessageSquareText } from "lucide-react";
 import { Textarea } from "./ui/textarea";
 import { useSubmitFeedback } from "@/api/feedbackApi";
 import { useState } from "react";
-import { toast } from "react-toastify";
 import { AxiosError } from "axios";
+import { toast } from "sonner";
 
 export default function FeedbackFormComponents() {
     const [feedback, setFeedback] = useState<string>("");

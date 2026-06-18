@@ -10,7 +10,7 @@ import img7 from "../assets/react.svg";
 import img8 from "../assets/slack.svg";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "@/hooks/hooks";
-import { toast } from "react-toastify";
+import { toast } from "sonner";
 
 export default function HeroSection() {
   const logos = [img1, img2, img3, img4, img5, img6, img7, img8];

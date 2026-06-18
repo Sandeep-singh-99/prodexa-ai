@@ -7,8 +7,8 @@ import React, { useState } from "react";
 import { useGenerateArticle } from "@/api/aiApi";
 import { useAppDispatch } from "@/hooks/hooks";
 import { setArticle, setLoading } from "@/redux/slice/articleSlice";
-import { toast } from "react-toastify";
 import { AxiosError } from "axios";
+import { toast } from "sonner";
 
 
 export default function ArticleForm() {

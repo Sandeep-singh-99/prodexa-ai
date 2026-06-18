@@ -13,8 +13,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { useSignIn, useSignUp } from "@/api/authApi";
 import { useAppDispatch } from "@/hooks/hooks";
 import { setUser } from "@/redux/slice/authSlice";
-import { toast } from "react-toastify";
 import { AxiosError } from "axios";
+import { toast } from "sonner";
 
 interface FormData {
   imageUrl: string;

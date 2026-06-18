@@ -18,7 +18,7 @@ import { useGenerateBlog } from "@/api/aiApi";
 import { useState } from "react";
 import { AxiosError } from "axios";
 import { setBlog, setLoading } from "@/redux/slice/blogSlice";
-import { toast } from "react-toastify";
+import { toast } from "sonner";
 
 export default function BlogForm() {
   const [formData, setFormData] = useState({

@@ -6,9 +6,9 @@ import { Input } from "../ui/input";
 import { useResumeAnalysis } from "@/api/aiApi";
 import { useAppDispatch } from "@/hooks/hooks";
 import React, { useState } from "react";
-import { toast } from "react-toastify";
 import { setLoading } from "@/redux/slice/imgGenerateSlice";
 import { AxiosError } from "axios";
+import { toast } from "sonner";
 
 export default function ResumeForm() {
   const [analysis, setAnalysis] = useState<File | null>(null);

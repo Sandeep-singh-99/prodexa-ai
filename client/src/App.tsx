@@ -1,11 +1,10 @@
 import { Outlet } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 import { useAppDispatch } from "./hooks/hooks";
 import { useEffect } from "react";
 import { useCheckAuth } from "./api/authApi";
 import { setUser } from "./redux/slice/authSlice";
 import FooterComponents from "./components/FooterComponents";
-//  import 'react-toastify/dist/ReactToastify.css';
+import { Toaster } from "./components/ui/sonner";
 
 export default function App() {
   const dispatch = useAppDispatch();
@@ -22,18 +21,7 @@ export default function App() {
   }, [user, dispatch, isError]);
   return (
     <div>
-      <ToastContainer
-        position="bottom-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick={false}
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
+      <Toaster />
       <Outlet />
       <FooterComponents />
     </div>

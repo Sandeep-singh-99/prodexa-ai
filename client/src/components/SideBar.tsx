@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { Button } from "./ui/button";
 import FeedbackFormComponents from "./FeedbackFormComponents";
-import { toast } from "react-toastify";
+import { toast } from "sonner";
 
 const SideBar = () => {
   const [isOpen, setIsOpen] = useState(false);

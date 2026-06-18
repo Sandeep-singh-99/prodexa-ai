@@ -16,9 +16,9 @@ import {
 import { useGenerateImage } from "@/api/aiApi";
 import { useAppDispatch } from "@/hooks/hooks";
 import { useState } from "react";
-import { toast } from "react-toastify";
 import { setImgGenerate, setLoading } from "@/redux/slice/imgGenerateSlice";
 import { AxiosError } from "axios";
+import { toast } from "sonner";
 
 export default function GImageForm() {
   const [context, setContext] = useState("");

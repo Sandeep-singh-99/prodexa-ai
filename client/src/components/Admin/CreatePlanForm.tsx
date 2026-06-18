@@ -13,11 +13,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "../ui/textarea";
 import { AxiosError } from "axios";
-import { toast } from "react-toastify";
 import { useState } from "react";
 import { useCreatePlan } from "@/api/planApi";
 import { useAppDispatch } from "@/hooks/hooks";
 import { setPlans } from "@/redux/slice/planSlice";
+import { toast } from "sonner";
 
 interface CreatePlanFormProps {
     planName: string;

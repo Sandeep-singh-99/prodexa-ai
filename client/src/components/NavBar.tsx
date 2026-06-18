@@ -15,9 +15,9 @@ import {
 import { useSignOut } from "@/api/authApi";
 import { logout } from "@/redux/slice/authSlice";
 import { useQueryClient } from "@tanstack/react-query";
-import { toast } from "react-toastify";
 import { AxiosError } from "axios";
 import ProfileDialogComponents from "./ProfileComponents/ProfileDialogComponents";
+import { toast } from "sonner";
 
 export default function NavBar() {
   const { isAuthenticated, user } = useAppSelector((state) => state.auth);

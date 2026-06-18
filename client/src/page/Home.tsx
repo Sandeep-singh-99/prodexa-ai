@@ -1,6 +1,6 @@
 import SideBar from '@/components/SideBar'
+import { Toaster } from '@/components/ui/sonner'
 import { Outlet } from 'react-router-dom'
-import { ToastContainer } from 'react-toastify'
 
 export default function Home() {
   return (
@@ -8,18 +8,7 @@ export default function Home() {
       <div className="flex">
         <SideBar />
         <div className="flex-1">
-          <ToastContainer
-            position="bottom-right"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick={false}
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="dark"
-          />
+          <Toaster />
           <Outlet />
         </div>
       </div>
