@@ -1,4 +1,5 @@
 import FeatureSection from '@/components/Feature-Section'
+import GridBackground from '@/components/GridBackground'
 import HeroSection from '@/components/HeroSection'
 import NavBar from '@/components/NavBar'
 import { Card, CardContent } from '@/components/ui/card'
@@ -7,7 +8,8 @@ import { testimonial } from '@/data/testmonial'
 export default function AppHome() {
   return (
     <div className="">
-      <div className='grid-background'></div>
+      {/* <div className='grid-background'></div> */}
+      <GridBackground />
       <NavBar />
       <HeroSection />
 

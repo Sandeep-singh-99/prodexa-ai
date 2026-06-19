@@ -29,16 +29,16 @@ export default function HeroSection() {
 
   return (
     <div className="w-full mx-auto min-h-screen px-4">
-      <div className="max-w-5xl mx-auto text-center pt-24 md:pt-28 xl:pt-36 lg:pt-36  flex flex-col items-center justify-between min-h-screen">
+      <div className="max-w-7xl mx-auto text-center pt-24 md:pt-28 xl:pt-36 lg:pt-36 pb-10  flex flex-col items-center justify-between min-h-screen">
         <div className="md:space-y-7 space-y-10">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight">
+          <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold leading-tight">
             Create amazing content with
             <span className="text-transparent gradient-title ml-3 bg-clip-text">
               AI tools
             </span>
           </h1>
 
-          <p className="text-base sm:text-lg font-serif md:px-28">
+          <p className="text-base sm:text-lg font-semibold md:px-28">
             Transform your content creation with our suite of premium AI tools.
             Write articles, generate images, and enhance your workflow.
           </p>
