@@ -150,19 +150,53 @@ export default function HeroSection() {
         </motion.div>
 
         {/* Bounded Logo Showcase */}
-          {/* Logo Marquee */}
-        <div className="overflow-hidden flex items-center justify-center w-full mt-28 md:mt-10">
-          <div className="flex w-max gap-12 sm:gap-16">
-            {logos.map((img, index) => (
-              <img
-                key={index}
-                src={img}
-                alt={`Logo ${index}`}
-                className="w-20 h-20 sm:w-28 sm:h-28 md:w-42 md:h-42 object-contain"
-              />
-            ))}
+        <motion.div
+          variants={itemVariants}
+          className="w-full mt-24 md:mt-16 flex flex-col items-center gap-6"
+        >
+          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground/60 text-center">
+            Trusted by content creators at leading teams
+          </span>
+
+          <div className="relative w-full overflow-hidden py-4 [mask-image:linear-gradient(to_right,transparent_0%,_black_15%,_black_85%,_transparent_100%)]">
+            <motion.div
+              className="flex gap-8 w-max pr-8"
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{
+                ease: "linear",
+                duration: 20,
+                repeat: Infinity,
+              }}
+            >
+              {/* First set of logos */}
+              {logos.map((img, index) => (
+                <div
+                  key={`logo-1-${index}`}
+                  className="flex items-center justify-center px-6 py-4 bg-muted/15 dark:bg-muted/5 border border-border/30 dark:border-border/10 rounded-2xl backdrop-blur-sm min-w-[120px] sm:min-w-[150px] h-16 sm:h-20 transition-all duration-300 hover:border-primary/30 hover:bg-muted/25 dark:hover:bg-muted/10 group cursor-pointer hover:shadow-sm"
+                >
+                  <img
+                    src={img}
+                    alt={`Logo ${index}`}
+                    className="h-full max-w-[80px] sm:max-w-[100px] object-contain opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-90 group-hover:scale-105 transition-all duration-300 dark:brightness-200"
+                  />
+                </div>
+              ))}
+              {/* Second set of logos for seamless looping */}
+              {logos.map((img, index) => (
+                <div
+                  key={`logo-2-${index}`}
+                  className="flex items-center justify-center px-6 py-4 bg-muted/15 dark:bg-muted/5 border border-border/30 dark:border-border/10 rounded-2xl backdrop-blur-sm min-w-[120px] sm:min-w-[150px] h-16 sm:h-20 transition-all duration-300 hover:border-primary/30 hover:bg-muted/25 dark:hover:bg-muted/10 group cursor-pointer hover:shadow-sm"
+                >
+                  <img
+                    src={img}
+                    alt={`Logo ${index}`}
+                    className="h-full max-w-[80px] sm:max-w-[100px] object-contain opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-90 group-hover:scale-105 transition-all duration-300 dark:brightness-200"
+                  />
+                </div>
+              ))}
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
