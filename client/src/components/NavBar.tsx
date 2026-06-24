@@ -69,7 +69,7 @@ export default function NavBar() {
               </DropdownMenuTrigger>
               <DropdownMenuContent className="mt-1" align="end">
                 {user?.role === "admin" ? (
-                  <Link to={"/ai-prod-app/v1/admin-route/dashboard"}>
+                  <Link to={"/ai-prod-app/v1/admin-route/"}>
                     <DropdownMenuItem>
                       <LayoutDashboard className="mr-2 h-4 w-4" />
                       <span>Admin Dashboard</span>

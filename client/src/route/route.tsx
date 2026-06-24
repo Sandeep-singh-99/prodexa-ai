@@ -31,7 +31,7 @@ const routes = createBrowserRouter([
     element: <AdminPage />,
     children: [
       {
-        path: "dashboard",
+        path: "",
         element: <AdminDashboard />,
       },
       {
@@ -39,7 +39,7 @@ const routes = createBrowserRouter([
         element: <CreatePlan />
       },
       {
-        path: "feedback-form",
+        path: "feedback",
         element: <FeedBackFormPage />
       }
     ]

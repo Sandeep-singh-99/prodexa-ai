@@ -10,10 +10,6 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import {
-  Home,
-  FilePlus,
-  Files,
-  FolderOpen,
   BrainCircuit,
   LayoutDashboard,
   FileText,
