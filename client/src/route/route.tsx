@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import App from "../App";
-import Home from "@/page/Home";
 import Dashboard from "@/page/Dashboard/Dashboard";
 import AppHome from "@/page/AppHome";
 import ArticlePage from "@/page/Dashboard/ArticlePage";
@@ -14,6 +13,7 @@ import AdminPage from "@/page/Admin/AdminPage";
 import AdminDashboard from "@/page/Admin/AdminDashboard";
 import CreatePlan from "@/page/Admin/CreatePlan";
 import FeedBackFormPage from "@/page/Admin/FeedBackFormPage";
+import AppSideBarDashboard from "@/page/AppSideBarDashboard";
 
 const routes = createBrowserRouter([
   {
@@ -45,11 +45,11 @@ const routes = createBrowserRouter([
     ]
   },
   {
-    path: "home",
-    element: <Home />,
+    path: "dashboard",
+    element: <AppSideBarDashboard />,
     children: [
       {
-        path: "dashboard",
+        path: "",
         element: <Dashboard />,
       },
       {

@@ -3,7 +3,6 @@ import {
   SidebarContent,
   SidebarHeader,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarGroup,
   SidebarMenu,
   SidebarMenuItem,
@@ -15,58 +14,61 @@ import {
   FilePlus,
   Files,
   FolderOpen,
-  ClipboardList,
-  Sparkles,
-  DollarSignIcon,
+  BrainCircuit,
+  LayoutDashboard,
+  FileText,
+  Globe,
+  Briefcase,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Separator } from "./ui/separator";
 
 const MenuOptions = [
   {
     title: "Dashboard",
-    url: "/t-dashboard/home",
-    icon: <Home />,
+    url: "/dashboard",
+    icon: <LayoutDashboard />,
   },
   {
-    title: "New Note",
-    url: "/t-dashboard/create-notes",
-    icon: <FilePlus />,
+    title: "Article",
+    url: "/dashboard/article",
+    icon: <FileText />,
   },
   {
-    title: "My Notes",
-    url: "/t-dashboard/view-notes",
-    icon: <Files />,
+    title: "Blog",
+    url: "/dashboard/blog",
+    icon: <Globe />,
   },
   {
-    title: "Resources",
-    url: "/t-dashboard/docs",
-    icon: <FolderOpen />,
+    title: "Resume",
+    url: "/dashboard/resume",
+    icon: <Briefcase />,
   },
-  {
-    title: "Assignments",
-    url: "/t-dashboard/assignments",
-    icon: <ClipboardList />,
-  },
-  {
-    title: "Payment",
-    url: "/t-dashboard/payment",
-    icon: <DollarSignIcon />,
-  },
+  // {
+  //   title: "Assignments",
+  //   url: "/t-dashboard/assignments",
+  //   icon: <ClipboardList />,
+  // },
+  // {
+  //   title: "Payment",
+  //   url: "/t-dashboard/payment",
+  //   icon: <DollarSignIcon />,
+  // },
 ];
 
-export default function TSideBar() {
+export default function SideBar() {
   const { open } = useSidebar();
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader>
-        <Link to={"/"} className="flex items-center gap-2 text-yellow-400">
-          <Sparkles />
-          {open && <span className="text-3xl font-bold">Class Buddy</span>}
+        <Link to={"/"} className="flex items-center gap-2">
+          <BrainCircuit />
+          {open && <span className="text-3xl font-bold">Prodexa AI</span>}
         </Link>
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Teacher Dashboard</SidebarGroupLabel>
+          <Separator />
           <SidebarGroupContent>
             <SidebarMenu>
               {MenuOptions.map((option, index) => (

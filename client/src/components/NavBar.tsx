@@ -51,7 +51,7 @@ export default function NavBar() {
 
         <div className="flex flex-row items-center space-x-2 md:space-x-4">
           {isAuthenticated && (
-            <Link to={"/home/article"}>
+            <Link to={"/dashboard"}>
               <Button variant={"outline"} className="md:flex">
                 <LayoutDashboard className="h-4 w-4" />
                 <span className="hidden md:block">Dashboard Insights</span>
