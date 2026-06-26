@@ -16,11 +16,14 @@ import { useSubmitFeedback } from "@/api/feedbackApi";
 import { useState } from "react";
 import { AxiosError } from "axios";
 import { toast } from "sonner";
+import { useSidebar } from "./ui/sidebar";
 
 export default function FeedbackFormComponents() {
     const [feedback, setFeedback] = useState<string>("");
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const FeedbackFormMutation = useSubmitFeedback();
+
+    const { open } = useSidebar();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -48,9 +51,9 @@ export default function FeedbackFormComponents() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="ghost" className="w-full justify-start">
-          <MessageSquareText className="h-4 w-4" />
-          Feedback Form
+        <Button size={open ? "lg" : "default"} variant="destructive" className="w-full justify-start">
+          <MessageSquareText className="h-4 w-4 shrink-0" />
+          {open && <span className="truncate">Feedback Form</span>}
         </Button>
       </DialogTrigger>
       <DialogContent>

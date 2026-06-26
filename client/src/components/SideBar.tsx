@@ -8,6 +8,7 @@ import {
   SidebarMenuItem,
   SidebarMenuButton,
   useSidebar,
+  SidebarFooter,
 } from "@/components/ui/sidebar";
 import {
   BrainCircuit,
@@ -18,6 +19,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Separator } from "./ui/separator";
+import FeedbackFormComponents from "./FeedbackFormComponents";
 
 const MenuOptions = [
   {
@@ -81,6 +83,9 @@ export default function SideBar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarFooter>
+        <FeedbackFormComponents />
+      </SidebarFooter>
     </Sidebar>
   );
 }
