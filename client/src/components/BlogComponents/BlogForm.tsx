@@ -7,9 +7,7 @@ import { Button } from "../ui/button";
 import {
   Select,
   SelectContent,
-  SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
@@ -56,63 +54,60 @@ export default function BlogForm() {
       if (error instanceof AxiosError) {
         toast.error(
           error.response?.data.message ||
-            "An error occurred while generating the blog."
+            "An error occurred while generating the blog.",
         );
       }
     }
   };
 
   return (
-    <Card className="w-full h-full">
-      <CardHeader className="flex items-center space-x-2">
-        <Sparkles className="h-4 w-4 mr-2" size={52} />
-        <h2 className="text-lg font-semibold">Blog Configuration</h2>
-      </CardHeader>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <CardContent>
-          <div className="space-y-4 mb-5">
-            <Label className="font-semibold">Blog Topic</Label>
-            <Textarea
-              placeholder="The future of artificial intelligence is..."
-              rows={5}
-              value={formData.question}
-              onChange={(e) =>
-                setFormData({ ...formData, question: e.target.value })
-              }
-            />
-          </div>
+    <div className="fixed bottom-0 left-0 right-0 border-t bg-background">
+      <div className="mx-auto max-w-4xl p-5">
+        <form
+          onSubmit={handleSubmit}
+          className="rounded-[28px] border bg-card shadow-lg"
+        >
+          <Textarea
+            value={formData.question}
+            onChange={(e) =>
+              setFormData({ ...formData, question: e.target.value })
+            }
+            placeholder="Write a blog about..."
+            rows={4}
+            className="resize-none border-0 shadow-none focus-visible:ring-0"
+          />
 
-          <div className="space-y-4">
-            <Label className="font-semibold text-lg">Category</Label>
+          <div className="flex items-center justify-between border-t px-4 py-3">
             <Select
               value={formData.category}
               onValueChange={(value) =>
                 setFormData({ ...formData, category: value })
               }
             >
-              <SelectTrigger className="w-full">
-                <SelectValue placeholder="Select a category" />
+              <SelectTrigger className="w-48 border-none shadow-none">
+                <SelectValue placeholder="Category" />
               </SelectTrigger>
+
               <SelectContent>
-                <SelectGroup>
-                  <SelectLabel>Categories</SelectLabel>
-                  <SelectItem value="technology">Technology</SelectItem>
-                  <SelectItem value="health">Health</SelectItem>
-                  <SelectItem value="lifestyle">Lifestyle</SelectItem>
-                  <SelectItem value="finance">Finance</SelectItem>
-                  <SelectItem value="travel">Travel</SelectItem>
-                </SelectGroup>
+                <SelectItem value="technology">Technology</SelectItem>
+                <SelectItem value="health">Health</SelectItem>
+                <SelectItem value="finance">Finance</SelectItem>
+                <SelectItem value="travel">Travel</SelectItem>
+                <SelectItem value="lifestyle">Lifestyle</SelectItem>
               </SelectContent>
             </Select>
+
+            <Button
+              type="submit"
+              className="rounded-full"
+              disabled={blogMutation.isPending}
+            >
+              <Sparkles className="mr-2 h-4 w-4" />
+              Generate
+            </Button>
           </div>
-        </CardContent>
-        <CardFooter>
-          <Button variant={"outline"}>
-            <SquarePen className="h-4 w-4 mr-2" />
-            Generate Blog
-          </Button>
-        </CardFooter>
-      </form>
-    </Card>
+        </form>
+      </div>
+    </div>
   );
 }
