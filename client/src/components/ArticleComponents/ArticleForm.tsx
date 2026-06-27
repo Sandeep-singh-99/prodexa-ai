@@ -1,6 +1,4 @@
-import { Sparkles, SquarePen } from "lucide-react";
-import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
-import { Label } from "../ui/label";
+import { Sparkles } from "lucide-react";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 import React, { useState } from "react";
@@ -9,7 +7,6 @@ import { useAppDispatch } from "@/hooks/hooks";
 import { setArticle, setLoading } from "@/redux/slice/articleSlice";
 import { AxiosError } from "axios";
 import { toast } from "sonner";
-
 
 export default function ArticleForm() {
   const [question, setQuestion] = useState<string>("");
@@ -34,32 +31,48 @@ export default function ArticleForm() {
       toast.success(result.message || "Article generated successfully!");
     } catch (error) {
       if (error instanceof AxiosError) {
-        toast.error(error.response?.data.message || "An error occurred while generating the article.");
+        toast.error(
+          error.response?.data.message ||
+            "An error occurred while generating the article.",
+        );
       }
     }
-  }
+  };
 
   return (
-    <Card className="w-full h-full">
-        <CardHeader className="flex items-center space-x-2">
-            <Sparkles className="h-4 w-4 mr-2" size={52} />
-            <h2 className="text-lg font-semibold">Article Configuration</h2>
-        </CardHeader>
-        <form onSubmit={handleSubmit}>
-        <CardContent className="mb-5">
-           <div className="space-y-4">
-             <Label className="font-semibold">Article Topic</Label>
-            <Textarea value={question} onChange={(e) => setQuestion(e.target.value)} rows={5} placeholder="The future of artificial intelligence is..."/>
-           </div>
-        </CardContent>
+    <div className="fixed bottom-0 left-0 right-0 bg-background border-t">
+      <div className="mx-auto max-w-4xl p-5">
+        <form
+          onSubmit={handleSubmit}
+          className="rounded-3xl border bg-card shadow-lg"
+        >
+          <Textarea
+            value={question}
+            onChange={(e) => setQuestion(e.target.value)}
+            placeholder="Write an article about..."
+            rows={4}
+            className="
+          resize-none
+          border-0
+          shadow-none
+          focus-visible:ring-0
+          rounded-t-3xl
+        "
+          />
 
-        <CardFooter>
-            <Button className="" variant={"outline"}>
-                <SquarePen className="h-4 w-4 mr-2" />
-                Generate Article
+          <div className="flex items-center justify-end px-4 py-3 border-t">
+            <Button
+              type="submit"
+              className="rounded-full"
+              disabled={articleMutation.isPending}
+            >
+              <Sparkles className="mr-2 h-4 w-4" />
+
+              {articleMutation.isPending ? "Generating..." : "Generate"}
             </Button>
-        </CardFooter>
+          </div>
         </form>
-    </Card>
-  )
+      </div>
+    </div>
+  );
 }

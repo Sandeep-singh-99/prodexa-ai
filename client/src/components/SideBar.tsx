@@ -83,9 +83,7 @@ export default function SideBar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter>
-        <FeedbackFormComponents />
-      </SidebarFooter>
+      <SidebarFooter>{open && <FeedbackFormComponents />}</SidebarFooter>
     </Sidebar>
   );
 }

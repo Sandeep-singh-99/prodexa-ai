@@ -3,10 +3,12 @@ import ArticleView from "@/components/ArticleComponents/ArticleView";
 
 export default function ArticlePage() {
   return (
-    <div className="flex flex-col md:flex-row justify-between gap-10 min-h-screen px-5 py-10">
-        <ArticleForm />
+    <div className="relative h-screen flex flex-col bg-background">
+      <main className="flex-1 overflow-y-auto pb-40">
+        <ArticleView />
+      </main>
 
-      <ArticleView />
+      <ArticleForm />
     </div>
-  )
+  );
 }
