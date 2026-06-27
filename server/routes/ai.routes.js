@@ -12,8 +12,5 @@ router.route("/blog-generate").post(authMiddleware, generateBlog)
 
 router.route("/article-generate").post(authMiddleware, generateArticle)
 
-// router.route("/image-generate").post(authMiddleware, generateImage);
-
-// router.route("/resume-analyze").post(authMiddleware, upload.single("file"), resumeAnalyze)
 
 export default router;
